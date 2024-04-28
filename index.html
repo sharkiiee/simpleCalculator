@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        async function placingValue()
+        {
+            const a = document.getElementById("firstValue").value;
+            const b = document.getElementById("secondValue").value;
+
+            const response = await fetch("http://localhost:3000/?a="+ a + "&b=" + b)
+            const ans = await response.text();
+            document.getElementById("finalSum").innerHTML = ans;
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="firstValue" id="firstValue"><br><br>
+    <input type="text" placeholder="secondValue" id="secondValue"><br><br>
+    <button onclick="placingValue()">RESULT </button>
+    <div id="finalSum"></div>
+</body>
+</html>
